@@ -1,5 +1,4 @@
 Tara Mann
-2314833
 tmann@chapman.edu
 CPSC 298-01
 Assignment 2 - Loops, Arrays, & Functions
