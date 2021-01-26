@@ -14,3 +14,4 @@ No known errors.
 
 References:
 Intro to C++ ZyBook
+For converting string to float: https://stackoverflow.com/questions/29037901/cannot-convert-stdstring-aka-stdbasic-string-to-const-char-for-argume

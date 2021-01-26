@@ -13,22 +13,18 @@ using namespace std;
 int main(int argc, char **argv){
     /* declaring array of size 10 but not specifying values
     so user input can be used */
-    int numberArray[10];
+    int numberArray[argc - 1];
     int num;
 
-    for (int i = 0; i < 10; ++i){
-      cout << "Enter a non-negative number:" << endl;
-      cin >> num; // getting user input
-      while (num < 0){ // checking that the number is non-negative
-        cout << "Invalid input, enter a non-negative number:" << endl;
-        cin >> num; // getting user input
+    for (int i = 1; i < argc; ++i){
+      num = atoi(argv[i]);
+      if (num >= 0){ // checking that the number is non-negative
+        numberArray[i - 1] = num; // adding the number to the array
       }
-      numberArray[i] = num; // adding the number to the array
     }
 
-    cout << endl;
     cout << "Printing the numbers." << endl;
-    for (int i = 0; i < 10; ++i){
+    for (int i = 0; i < argc - 1; ++i){
       cout << numberArray[i] << endl; // printing each number on its own line
     }
 

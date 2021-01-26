@@ -6,8 +6,6 @@ Assignment 2 - Loops, Arrays, & Functions
 1/26/21
 */
 
-// question: for the problems about creating a function, do we need to write code for a main method to test it?
-
 #include <iostream>
 
 using namespace std;
@@ -19,16 +17,17 @@ void zeroBoth(int &x, int &y){
   y = 0;
 }
 
-// possibly deleted, if not, clean up and add comments
 int main(int argc, char **argv){
-    int a = 9;
-    int b = 3;
+    // initializing int variables using command line arguments
+    int a = atoi(argv[1]);
+    int b = atoi(argv[2]);
 
     cout << "Value of a before: " << a << endl;
     cout << "Value of b before: " << b << endl;
 
-    zeroBoth(a, b);
+    zeroBoth(a, b); // calling the zeroBoth function
 
+    // a and b should both now be zero
     cout << "Value of a after: " << a << endl;
     cout << "Value of b after: " << b << endl;
 

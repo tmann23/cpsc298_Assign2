@@ -6,20 +6,20 @@ Assignment 2 - Loops, Arrays, & Functions
 1/26/21
 */
 
+// no user input should be command line
+
 #include <iostream>
 
 using namespace std;
 
-// question: is the length read in like 5' 1" or 61"
-// and is it supposed to be output like 1 meter and 54 cm or 1.54 meters and 154 cm?
+// function prototypes so they can access each other
 void getInput();
-void calculateLength(double feet, double inches);
-void outputLength(int meters, int cm);
+void calculateLength(float feet);
+void outputLength(float meters, float cm);
 
 /* function to get input from the user */
 void getInput(){
-  double feet;
-  double inches;
+  float feet;
   string userInput;
 
   cout << "Calculate length? (yes/exit)" << endl;
@@ -28,45 +28,41 @@ void getInput(){
   while (userInput != "exit") {
     cout << "Enter number of feet: " << endl;
     cin >> feet; // getting user input
-    cout << "Enter number of remaining inches: " << endl;
-    cin >> inches; // getting user input
 
-    calculateLength(feet, inches); // calling calculate length function
+    calculateLength(feet); // calling calculate length function
 
     cout << "Calculate length? (yes/exit)" << endl;
     cin >> userInput; // getting user input
   }
 }
 
-/* function to convert length from feet and inches
+/* function to convert length from feet
 to meters and centimeters */
-void calculateLength(double feet, double inches){
-  double totalLength;
-  int meters;
-  int cm;
-  const double METERS_IN_FOOT = 0.3048; // constant because it shouldn't change
+void calculateLength(float feet){
+  float meters;
+  float cm;
+  const float METERS_IN_FOOT = 0.3048; // constant because it shouldn't change
 
-  totalLength = feet + (inches / 12.0); // getting total length in feet
-  totalLength *= METERS_IN_FOOT; // getting total length in meters
-
-  // getting length in full meters and remaining centimeters
-  meters = (int)totalLength;
-  cm = (int)(totalLength * 100) % 100;
+  meters = feet * METERS_IN_FOOT; // getting total length in meters
+  cm = meters * 100; // getting total length in centimeters
 
   outputLength(meters, cm); // calling output length function
 }
 
 /* function to output the length in meters and centimeters
 to the console */
-void outputLength(int meters, int cm){
+void outputLength(float meters, float cm){
   cout << endl;
   cout << "Number of meters: " << meters << endl;
   cout << "Number of remaining centimeters: " << cm << endl;
   cout << endl;
 }
 
-// possibly deleted, if not, clean up and add comments
 int main(int argc, char **argv){
+    /* only need to call getInput once since the function includes a loop
+    the other functions are called by the other functions,
+    so they don't need to be called here */
     getInput();
+
     return 0;
 }
